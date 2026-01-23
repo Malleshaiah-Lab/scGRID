@@ -10,14 +10,14 @@ from torch_geometric.data import Data, DataLoader
 from torch_geometric.nn import GCNConv, GATConv, global_mean_pool
 from sklearn.metrics import precision_recall_fscore_support
 
+######################
+## 1. Global config ##
+######################
 WORKSPACE_PATH = "" # <path_to_workspace>
 if not os.path.exists(WORKSPACE_PATH):
     os.makedirs(WORKSPACE_PATH)
 os.chdir(WORKSPACE_PATH)
 
-######################
-## 1. Global config ##
-######################
 model_selected = "GAT"  # "GAT" or "GCN"
 conv1_channel = 64
 conv2_channel = 128
