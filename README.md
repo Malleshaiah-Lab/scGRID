@@ -7,7 +7,7 @@ scGRID is a graph-based single-cell annotation framework that represents cell id
 This version includes three standalone Python scripts:
 
 1. scgrid_train.py – training of GAT classifiers on CTSGRNs
-2. scgrid_test.py – classification of query CSSGRNs using trained GAT models
+2. scgrid_test.py – classification of query CTSGRNs using trained GAT models
 3. scgrid_majority_vote.py – ensemble majority voting across k trained models
 
 No command-line interface or end-to-end pipeline is provided yet.
@@ -20,7 +20,7 @@ This script trains a graph-level GAT classifier on Cell Type-Specific Gene Regul
 
 ### Input
 
-- A list of CSSGRN folder paths, each corresponding to a random subset used for k-fold cross-validation
+- A list of CTSGRN folder paths, each corresponding to a random subset used for k-fold cross-validation
 - A list of node feature folder paths, containing the following node features:
   1. average gene expression
   2. fold change
@@ -52,7 +52,7 @@ This script applies a single trained GAT model to a query dataset and returns pr
 ### Input
 
 - Path to a trained GAT model (.pt)
-- A CSSGRN folder for the query dataset
+- A CTSGRN folder for the query dataset
 - Node feature tables for the query dataset
 
 ### Operations
@@ -88,7 +88,7 @@ This script aggregates classification outputs across all k folds using majority 
 
 A final CSV file containing:
 
-- final predicted class per CSSGRN
+- final predicted class per CTSGRN
 - vote counts for each class
 
 
