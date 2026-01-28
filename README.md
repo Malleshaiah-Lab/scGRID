@@ -12,6 +12,10 @@ This version includes three standalone Python scripts:
 
 No command-line interface or end-to-end pipeline is provided yet.
 
+## Data
+
+Marrow-10X_P7_3 is used for model training, while Marrow-10X_P7_2 serves as an independent test dataset.
+
 ## 1. Training a GAT classifier
 
 ### (scgrid_train.py)
@@ -100,7 +104,8 @@ The current scGRID repository contains the core components required to evaluate 
 
 ## Notes
 
-*This version is not a software release.
-Scripts are currently configured via in-file parameters rather than a CLI.
-Full pipeline automation and argument parsing are in currently in development.*
+*This version is not a software release.*
+*Scripts are currently configured via in-file parameters rather than a CLI. Full pipeline automation and argument parsing are in currently in development.*
+
+*The current version of scGRID is implemented and tested using Python 3.9.*
 
