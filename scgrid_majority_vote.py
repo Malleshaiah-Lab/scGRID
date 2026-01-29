@@ -8,7 +8,7 @@ if not os.path.exists(WORKSPACE_PATH):
 os.chdir(WORKSPACE_PATH)
 
 # ────────── CONFIG ──────────
-INPUT_DIR = "" # <path_to_gat_models>
+INPUT_DIR = "" # <path_to_annotation_results>
 OUTPUT_CSV = os.path.join(WORKSPACE_PATH, "majority_vote_results.csv")
 # ───────────────────────────
 
