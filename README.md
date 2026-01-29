@@ -14,7 +14,9 @@ No command-line interface or end-to-end pipeline is provided yet.
 
 ## Data
 
-Marrow-10X_P7_3 is used for model training, while Marrow-10X_P7_2 serves as an independent test dataset.
+The **Marrow-10X_P7_3** dataset is used for model training, while **Marrow-10X_P7_2** is used as an independent test dataset.
+CTSGRNs, node feature tables, trained GAT models, and example output files are uploaded on Zenodo:
+https://zenodo.org/records/18420010
 
 ## 1. Training a GAT classifier
 
