@@ -8,17 +8,19 @@ This README documents **installation** and **usage of the CLI**.
 ## System requirements
 
 - **Operating system**: Linux  
-  (Windows users must install and use **WSL**)
+  (Windows users must install **WSL**)
 - **Python**: 3.9.19
 - **R**: 4.4.0
 - **Conda** (recommended)
 - **pip**
+
 
 ## Data
 
 The **Marrow-10X_P7_3** dataset is used for model training, while **Marrow-10X_P7_2** is used as an independent test dataset.
 CTSGRNs, node feature tables, trained GAT models, and example output files are uploaded on Zenodo:
 https://zenodo.org/records/18420010
+
 
 ## Installation
 
@@ -50,6 +52,7 @@ pip install -e .
 ```bash
 scgrid --help
 ```
+
 
 ## Command-line usage
 
@@ -89,6 +92,7 @@ scgrid --data-root <PATH_TO_DATA_ROOT> \
       classify --models-dir <PATH_TO_TRAINED_MODELS_FOLDER> \
       --entropy-threshold 0.9
 ```
+
 
 ## Notes
 
