@@ -65,7 +65,7 @@ scgrid --help
 ```bash
 scgrid train \
   --data-root <PATH_TO_DATA_ROOT> \
-  --input <INPUT_DATASET> \
+  --input <PATH_TO_INPUT_DATASET> \
   --input-type <rds|raw> \
   [additional options]
 ```
@@ -80,7 +80,7 @@ train --do-subsample TRUE --num-subsets 10 --sampling-rate 0.7 --subset-suffix _
 ```bash
 scgrid classify \
   --data-root <PATH_TO_DATA_ROOT> \
-  --input <QUERY_DATASET> \
+  --input <PATH_TO_QUERY_DATASET> \
   --models <PATH_TO_TRAINED_MODELS_FOLDER> \
   [additional options]
 ```
