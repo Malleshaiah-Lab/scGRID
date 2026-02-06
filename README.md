@@ -9,7 +9,7 @@ This README documents **installation** and **usage of the CLI**.
 
 - **Operating system**: Linux  
   (Windows users must install **WSL**)
-- **Python**: 3.9.19
+- **Python**: 3.9
 - **R**: 4.4.0
 - **Conda** (recommended)
 - **pip**
@@ -17,9 +17,9 @@ This README documents **installation** and **usage of the CLI**.
 ---
 ## Data
 
-The **Marrow-10X_P7_3** dataset is used for model training, while **Marrow-10X_P7_2** is used as an independent test dataset.
-CTSGRNs, node feature tables, trained GAT models, and example output files are uploaded on Zenodo:
-https://zenodo.org/records/18420010
+The **Marrow-10X_P7_3** dataset was used for model training, while **Marrow-10X_P7_2** served as an independent test dataset.
+All input data and result files are available on Zenodo:
+https://zenodo.org/records/18508964
 
 ---
 ## Installation
