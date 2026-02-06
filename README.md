@@ -13,15 +13,15 @@ This README documents **installation** and **usage of the CLI**.
 - **R**: 4.4.0
 - **Conda** (recommended)
 - **pip**
----
 
+---
 ## Data
 
 The **Marrow-10X_P7_3** dataset is used for model training, while **Marrow-10X_P7_2** is used as an independent test dataset.
 CTSGRNs, node feature tables, trained GAT models, and example output files are uploaded on Zenodo:
 https://zenodo.org/records/18420010
 
-
+---
 ## Installation
 
 ### 1. Clone the repository
@@ -53,7 +53,7 @@ pip install -e .
 scgrid --help
 ```
 
-
+---
 ## Command-line usage
 
 scGRID provides a unified CLI with multiple subcommands.
@@ -93,7 +93,7 @@ scgrid --data-root <PATH_TO_DATA_ROOT> \
       --entropy-threshold 0.9
 ```
 
-
+---
 ## Notes
 
 - scGRID is designed for Linux-based environments
