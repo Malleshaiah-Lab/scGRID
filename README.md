@@ -4,7 +4,7 @@ scGRID is a graph-based single-cell annotation framework that represents cell id
 
 This README documents **installation** and **usage of the CLI**.
 
-
+---
 ## System requirements
 
 - **Operating system**: Linux  
@@ -13,7 +13,7 @@ This README documents **installation** and **usage of the CLI**.
 - **R**: 4.4.0
 - **Conda** (recommended)
 - **pip**
-
+---
 
 ## Data
 
