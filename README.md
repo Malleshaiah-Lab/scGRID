@@ -56,7 +56,6 @@ scgrid --help
 ---
 ## Command-line usage
 
-scGRID provides a unified CLI with multiple subcommands.
 ```bash
 scgrid --help
 ```
