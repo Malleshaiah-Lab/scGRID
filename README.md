@@ -96,7 +96,7 @@ scgrid --data-root <PATH_TO_DATA_ROOT> \
 ## Notes
 
 - **Operating System:** Linux  
-- **R:** Required for preprocessing steps that use Seurat functions
+- **R:** Required for preprocessing steps that use Seurat functions (https://satijalab.org/seurat/)
 
 *The current version of scGRID (0.1.0) is implemented and tested using Python 3.9.*
 
