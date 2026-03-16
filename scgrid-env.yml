@@ -1,4 +1,4 @@
-name: scgrid-env-v5
+name: scgrid-env
 channels:
   - conda-forge
   - bioconda
