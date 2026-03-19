@@ -227,7 +227,12 @@ def train_pipeline(
         subset_celloracle_dir.mkdir(parents=True, exist_ok=True)
 
         converted_h5ad = subset_celloracle_dir / f"{subset_name}.celloracle_ready.h5ad"
-        convert_for_celloracle(input_h5ad, converted_h5ad)
+        annotation_col = r_args.group_by or "tabula_muris_annotation"
+        convert_for_celloracle(
+            input_h5ad,
+            converted_h5ad,
+            annotation_col=annotation_col,
+        )
 
         run_celloracle_ctsgrns(converted_h5ad, subset_celloracle_dir)
 
@@ -305,8 +310,13 @@ def classify_pipeline(
     if not input_h5ad.exists():
         raise FileNotFoundError(f"Missing original h5ad: {input_h5ad}")
 
-    converted_h5ad = celloracle_out / f"{dataset_name}.celloracle_ready.h5ad"
-    convert_for_celloracle(input_h5ad, converted_h5ad)
+    converted_h5ad = subset_celloracle_dir / f"{subset_name}.celloracle_ready.h5ad"
+    annotation_col = r_args.group_by or "tabula_muris_annotation"
+    convert_for_celloracle(
+        input_h5ad,
+        converted_h5ad,
+        annotation_col=annotation_col,
+    )
 
     run_celloracle_ctsgrns(converted_h5ad, celloracle_out)
     output_classes = infer_output_classes_from_ctsgrns(celloracle_out)
