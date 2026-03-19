@@ -25,7 +25,10 @@ def convert_for_celloracle(
 
     # make sure categories are clean
     if annotation_col not in adata.obs:
-        raise KeyError(f"Missing annotation column in adata.obs: {annotation_col}")
+        raise KeyError(
+            f"Missing annotation column in adata.obs: {annotation_col}. "
+            f"Available columns: {list(adata.obs.columns)}"
+        )
 
     # neighbors + graph layout
     sc.pp.neighbors(adata)
