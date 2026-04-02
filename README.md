@@ -2,7 +2,7 @@
 
 scGRID is a graph-based single-cell annotation framework that represents cell identity using Cell Type–Specific Gene Regulatory Networks (CTSGRNs) and classifies them using Graph Attention Networks (GATs).
 
-![scGRID - GitHub](https://github.com/user-attachments/assets/e4777036-cafd-446e-86da-e909f87ed44f)
+![scGRID - GitHub (resized)](https://github.com/user-attachments/assets/544adf81-0aba-4494-afdc-a525e03691b3)
 
 This README documents **installation** and **usage of the CLI**.
 
