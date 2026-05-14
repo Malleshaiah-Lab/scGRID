@@ -96,6 +96,64 @@ cm_norm <- sweep(cm, 1, row_sums, FUN="/")
 cm_norm[is.na(cm_norm)] <- 0
 write.csv(as.matrix(cm_norm), file.path(out_dir, "confusion_matrix_proportions.csv"), row.names=TRUE)
 
+# Convert confusion matrices to long format for plotting
+confusion_df <- as.data.frame(cm)
+colnames(confusion_df) <- c("Observed", "Predicted", "Count")
+
+confusion_df_norm <- as.data.frame(as.table(cm_norm))
+colnames(confusion_df_norm) <- c("Observed", "Predicted", "Proportion")
+
+# Keep factor order
+confusion_df$Observed  <- factor(confusion_df$Observed, levels = obs_levels)
+confusion_df$Predicted <- factor(confusion_df$Predicted, levels = pred_levels)
+
+confusion_df_norm$Observed  <- factor(confusion_df_norm$Observed, levels = obs_levels)
+confusion_df_norm$Predicted <- factor(confusion_df_norm$Predicted, levels = pred_levels)
+
+# Reverse y-axis for nicer display
+plot_confusion_df <- confusion_df
+plot_confusion_df$Observed <- factor(plot_confusion_df$Observed, levels = rev(obs_levels))
+
+pdf(file.path(out_dir, "confusion_matrix_raw_counts.pdf"), width = 8, height = 5)
+print(
+  ggplot(plot_confusion_df, aes(x = Predicted, y = Observed, fill = Count)) +
+    geom_tile(color = "white") +
+    geom_text(aes(label = Count), vjust = 0.5) +
+    scale_fill_gradient(low = "lightgrey", high = "steelblue") +
+    labs(
+      title = "Confusion Matrix (Raw Counts)",
+      x = "Predicted Cell Type",
+      y = "Observed Cell Type"
+    ) +
+    theme(
+      axis.text.x = element_text(angle = 45, hjust = 1),
+      panel.grid = element_blank()
+    )
+)
+dev.off()
+
+# Normalized confusion matrix plot
+plot_confusion_df_norm <- confusion_df_norm
+plot_confusion_df_norm$Observed <- factor(plot_confusion_df_norm$Observed, levels = rev(obs_levels))
+
+pdf(file.path(out_dir, "confusion_matrix_proportions.pdf"), width = 8, height = 5)
+print(
+  ggplot(plot_confusion_df_norm, aes(x = Predicted, y = Observed, fill = Proportion)) +
+    geom_tile(color = "white") +
+    geom_text(aes(label = round(Proportion, 2)), vjust = 0.5) +
+    scale_fill_gradient(low = "lightgrey", high = "steelblue") +
+    labs(
+      title = "Normalized Confusion Matrix",
+      x = "Predicted Cell Type",
+      y = "Observed Cell Type"
+    ) +
+    theme(
+      axis.text.x = element_text(angle = 45, hjust = 1),
+      panel.grid = element_blank()
+    )
+)
+dev.off()
+
 # Overall accuracy including Unknown column (Unknown is never correct)
 overlap <- intersect(colnames(cm), rownames(cm))
 correct <- sum(diag(cm[overlap, overlap, drop=FALSE]))
