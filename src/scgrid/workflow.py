@@ -40,6 +40,9 @@ class RPreprocessArgs:
     min_pct: Optional[float] = None
     logfc_threshold: Optional[float] = None
     only_pos: Optional[bool] = None
+    
+    # celloracle params
+    celloracle_edge_count: Optional[int] = None
 
 
 def make_run_dir(data_root: Path, run_id: Optional[str]) -> Path:
@@ -234,7 +237,7 @@ def train_pipeline(
             annotation_col=annotation_col,
         )
 
-        run_celloracle_ctsgrns(converted_h5ad, subset_celloracle_dir)
+        run_celloracle_ctsgrns(converted_h5ad, subset_celloracle_dir, threshold_number=r_args.celloracle_edge_count or 10000)
 
         adj_folders.append(subset_celloracle_dir)
         feat_folders.append(subset)  # feature CSVs created by R script in subset folder
@@ -318,7 +321,7 @@ def classify_pipeline(
         annotation_col=annotation_col,
     )
 
-    run_celloracle_ctsgrns(converted_h5ad, celloracle_out)
+    run_celloracle_ctsgrns(converted_h5ad, celloracle_out, threshold_number=r_args.celloracle_edge_count or 10000)
     output_classes = infer_output_classes_from_ctsgrns(celloracle_out)
     if not output_classes:
         raise RuntimeError("No CTSGRN_*.csv files found; cannot classify.")
