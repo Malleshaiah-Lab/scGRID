@@ -57,6 +57,9 @@ def main(argv=None):
     ap.add_argument("--logfc-threshold", type=float, default=None)
     ap.add_argument("--only-pos", type=str, default=None, choices=["TRUE", "FALSE", "true", "false"])
 
+    # celloracle params
+    ap.add_argument("--celloracle-edge-count", type=int, default=10000, help="Maximum number of CellOracle links/edges retained per cluster after filtering. Default: 10000.")
+
     sub = ap.add_subparsers(dest="cmd", required=True)
 
     tr = sub.add_parser("train")
@@ -92,6 +95,8 @@ def main(argv=None):
         min_pct=args.min_pct,
         logfc_threshold=args.logfc_threshold,
         only_pos=parse_opt_bool(args.only_pos),
+
+        celloracle_edge_count=args.celloracle_edge_count,
     )
 
     if args.cmd == "train":
